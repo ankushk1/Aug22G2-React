@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import FirstComponent from "./Components/FirstComponent";
+import { useState } from "react";
+import ObjectState from "./Components/ObjectState";
 
 function App() {
+  // let count = 0;
+  // const [count, setCount] = useState(1);
+  // const [name, setName] = useState("ABC");
+
+  // const onIncrement = () => {
+  //   setCount((prevCount) => {
+  //     console.log(prevCount);
+  //     return prevCount + 1;
+  //   });
+  //   setCount(count + 1);
+  //   // setCount((prevCount) => {
+  //   //   console.log(prevCount);
+  //   //   return prevCount + 1;
+  //   // });
+  // };
+
+  // const onIncrementNumber = () => {
+  //   setName("XYZ");
+  // };
+
+  const [arr, setArr] = useState([1, 2, 3]);
+
+  const onChnageArr = () => {
+    const val = Math.floor(Math.random() * 100);
+    const arrCopy = [...arr];
+    if (arrCopy.length > 5) return;
+    arrCopy.push(val);
+    setArr(arrCopy);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ObjectState/>
     </div>
   );
 }
